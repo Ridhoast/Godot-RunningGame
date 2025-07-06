@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwwn6gbremmsd"]
+[gd_scene load_steps=10 format=3 uid="uid://cwwn6gbremmsd"]
 
-[ext_resource type="Texture2D" uid="uid://b7jhmd5bamka4" path="res://assets/player/loncat.png" id="2_cxr5p"]
-[ext_resource type="Texture2D" uid="uid://cj5tqxxnxyauy" path="res://assets/player/depan.png" id="2_e80uo"]
-[ext_resource type="Texture2D" uid="uid://bmw58nauso8lx" path="res://assets/player/jalan.png" id="4_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://b3ds5l8lfbjag" path="res://assets/player/New folder/depan.png" id="2_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://boqi0bsjk8muk" path="res://assets/player/New folder/loncat.png" id="3_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://bysuyk42ly4e3" path="res://assets/player/New folder/kiri2.png" id="4_wi0c6"]
 [ext_resource type="Script" uid="uid://7akvi7rw55cr" path="res://Player.gd" id="5"]
-[ext_resource type="Texture2D" uid="uid://htydmty5bsw" path="res://assets/player/jalan2.png" id="5_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://dlrchu5whg3f2" path="res://assets/player/New folder/kiri1.png" id="5_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://cpkynuduavcn5" path="res://assets/player/New folder/kanan2.png" id="6_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://w3mbolm4ojru" path="res://assets/player/New folder/kanan1.png" id="7_l6ohk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
 size = Vector2(50, 98.5)
@@ -13,7 +15,7 @@ size = Vector2(50, 98.5)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_e80uo")
+"texture": ExtResource("2_dtqjt")
 }],
 "loop": true,
 "name": &"idle",
@@ -21,38 +23,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cxr5p")
+"texture": ExtResource("3_5ncpa")
 }],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": ExtResource("5_hp6x6")
+}, {
 "duration": 1.0,
-"texture": ExtResource("4_cxr5p")
+"texture": ExtResource("4_wi0c6")
+}],
+"loop": true,
+"name": &"kiri",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("7_l6ohk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3tkgg")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_cxr5p")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
 position = Vector2(34, 57.75)
 shape = SubResource("RectangleShape2D_cxr5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(31, 56)
-scale = Vector2(0.15, 0.15)
+position = Vector2(32, 58)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("2")
-animation = &"idle"
+animation = &"walk"

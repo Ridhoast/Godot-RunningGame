@@ -1,17 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxyeodoo6cdge"]
 
 [ext_resource type="Texture2D" uid="uid://dc0knri4ocupy" path="res://assets/enemy/guru.png" id="2_2hac7"]
-[ext_resource type="Script" uid="uid://gj00manoc3ml" path="res://enemy.gd" id="2_s7bn3"]
+[ext_resource type="Script" uid="uid://bwwe7jwbyin1j" path="res://enemy.gd" id="2_s7bn3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(55.5958, 57.2294)
+size = Vector2(49.9495, 78.9037)
 
 [node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
 script = ExtResource("2_s7bn3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.21875, 0.21875)
+position = Vector2(307, 90)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("2_2hac7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(307.025, 89.5482)
 shape = SubResource("1")

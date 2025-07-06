@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-var speed := -150
+func _ready():
+	rotation_degrees = randi() % 360
+
 func _integrate_forces(state):
-	position.x -= 150 * state.get_step()
-	if position.x < -100:
+	if position.x < -100 or position.y > 900:
 		queue_free()

@@ -12,10 +12,10 @@ func _physics_process(delta):
 		velocity.y = JUMPFORCE * 1
 
 	# Gerak kanan & kiri (opsional)
-	if Input.is_key_pressed(KEY_RIGHT) and is_on_floor():
-		velocity.x += 10
-	elif Input.is_key_pressed(KEY_LEFT) and is_on_floor():
-		velocity.x -= 10
+	if Input.is_key_pressed(KEY_RIGHT):
+		velocity.x += 5
+	elif Input.is_key_pressed(KEY_LEFT):
+		velocity.x -= 5
 	else:
 		velocity.x = 0  # reset horizontal movement
 
@@ -42,9 +42,9 @@ func _physics_process(delta):
 	# Animasi
 	if not is_on_floor():
 		$AnimatedSprite2D.play("jump")
-	elif abs(velocity.x) > 0:
+	elif velocity.x > 0:
 		$AnimatedSprite2D.play("walk")
-	elif abs(velocity.x) < 0:
-		$AnimatedSprite2D.play("walk_left")
+	elif velocity.x < 0:
+		$AnimatedSprite2D.play("kiri")
 	else:
 		$AnimatedSprite2D.play("idle")

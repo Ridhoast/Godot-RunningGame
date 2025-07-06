@@ -1,4 +1,6 @@
 res://default_env.tres
-res://World.tscn
 res://Enemy.tscn
+res://enemy.gd
+res://World.gd
+res://World.tscn
 res://Player.tscn
